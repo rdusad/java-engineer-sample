@@ -5,7 +5,7 @@
 
 3) Look for the swagger documentation http://localhost:8080/index.html 
 
-4) This has a Account REST resource which has findAllAccounts(), getAccount for a given id and createAccount() API
+4) This has a Account REST resource which has findAllAccounts() API
 
 5) FindAllAccounts returns the account provided in a static list with account name as Account1, Account2 and Account3.
 
