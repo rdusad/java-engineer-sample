@@ -46,7 +46,28 @@ public class AccountResourceImpl implements AccountResource {
 		return Response.ok(resource).links(link).build();
 	}	
 	
-
+	public Response findById(long id) {
+		
+		List<Account> account = accountService.findById(id);	
+			if(account == null) {
+			return Response.noContent().build();
+		}
+		Link link = Link.fromUri(baseUrl).rel("self").build();
+		ResourceCollection<Account> resource = new ResourceCollection<>(account);
+		return Response.ok(resource).links(link).build();
+		
+	}
+	
+	public Response saveAccount(Account account) {
+		if(accountService.isAccountExist(account)) {
+			return Response.noContent().build();
+		}
+		Link link = Link.fromUri(baseUrl).rel("self").build();
+		ResourceCollection<Account> resource = new ResourceCollection<>(account);
+		return Response.ok(resource).links(link).build();
+		
+	}
+	
 	
 
 }

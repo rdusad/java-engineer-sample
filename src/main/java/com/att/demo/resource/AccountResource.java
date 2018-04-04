@@ -52,6 +52,47 @@ public interface AccountResource {
 					})
 	public Response findAllAccounts();
 	
-
+	/**
+	 * This service returns a particular account
+	 * @param id
+	 * @return
+	 */
+	@GET
+	@Produces({MediaType.APPLICATION_JSON})
+	@Consumes({MediaType.APPLICATION_JSON})
+	@ApiOperation(
+			value = "Get account by id",
+			notes = "Return a particular account by id",
+			response = AccountResponse.class)
+	@ApiResponses(
+			value = {
+					@ApiResponse(code = 200, message = "SUCCESS"),
+					@ApiResponse(code = 404, message = "Account not found")					
+					})
 	
+	public Response findById(long id);
+	/**
+	 * It saves the particular account in the list
+	 * @param account
+	 */
+	
+	/**
+	 * This service returns a particular account
+	 * @param id
+	 * @return
+	 */
+	@GET
+	@Produces({MediaType.APPLICATION_JSON})
+	@Consumes({MediaType.APPLICATION_JSON})
+	@ApiOperation(
+			value = "Get account by id",
+			notes = "Return a particular account by id",
+			response = AccountResponse.class)
+	@ApiResponses(
+			value = {
+					@ApiResponse(code = 201, message = "SUCCESS"),
+					@ApiResponse(code = 409, message = "Unable to create. Account with name already exist")					
+					})
+	
+	public Response saveAccount(Account account);
 }
